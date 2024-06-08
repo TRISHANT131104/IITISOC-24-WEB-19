@@ -8,13 +8,13 @@ const Navbar2 = () => {
     const [isopen, setisopen] = useState(false);
 
     return (
-        <div className='flex justify-between p-4'>
+        <div className='flex justify-between p-4 bg-gray-200'>
 
             <Link href="" className='relative  group transition-all '>
                 
 
                 <span className='group-hover:font-bold'>Artificial Intelligence</span>
-                     <div className='absolute top-5 p-4  transition-all right-0 hidden group-hover:flex'>
+                     <div className=' bg-white rounded-xl absolute top-6 p-4  transition-all right-0 hidden group-hover:flex'>
                 
                      <ul>
                             <li>AI video Editing</li>
@@ -26,7 +26,7 @@ const Navbar2 = () => {
             </Link>
             <Link href="" className='relative  group'>
                 <span className='group-hover:font-bold'>Graphic designing</span>
-                     <div className='absolute top-5 p-4 right-0 hidden group-hover:flex'>
+                     <div className=' bg-white rounded-xl absolute top-6 p-4 right-0 hidden group-hover:flex'>
                 
                     <ul>
                         <li>Logo Design</li>
@@ -37,7 +37,7 @@ const Navbar2 = () => {
             </Link>
             <Link href="" className='relative  group'>
                 <span className='group-hover:font-bold'>Web Development</span>
-                     <div className='absolute top-5 p-4 right-0 hidden group-hover:flex '>
+                     <div className=' bg-white rounded-xl absolute top-6 p-4 right-0 hidden group-hover:flex '>
                      <ul>
                         <li>Front End</li>
                         <li>Backend</li>
@@ -45,8 +45,9 @@ const Navbar2 = () => {
                 </div>
             </Link>
             <Link href="" className='relative  group'>
+            
                 <span className='group-hover:font-bold'>Digital marketing</span>
-                     <div className='absolute top-5 p-4 right-0 hidden group-hover:flex'>
+                     <div className='  bg-white rounded-xl absolute top-6 p-4 right-0 hidden group-hover:flex'>
                      <ul>
                         <li>Email marketing</li>
                         <li>Influencer marketing</li>
@@ -61,7 +62,7 @@ const Navbar2 = () => {
 
             <Link href="" className='relative  group'>
                 <span className='group-hover:font-bold'>Machine learning</span>
-                     <div className='absolute top-5 p-4 right-0 hidden group-hover:flex'>
+                     <div className=' bg-white rounded-xl absolute top-6 p-4 right-0 hidden group-hover:flex'>
                 
                      <ul>
                         <li>Data Science</li>
@@ -72,7 +73,7 @@ const Navbar2 = () => {
             </Link>
             <Link href="" className='relative  group'>
                 <span className='group-hover:font-bold'>Programming</span>
-                     <div className='absolute top-5 p-4 right-0 hidden group-hover:flex'>
+                     <div className=' bg-white rounded-xl absolute top-6 p-4 right-0 hidden group-hover:flex'>
                      <ul>
                         <li>Programming and Coding</li>
                         <li>Databases</li>
