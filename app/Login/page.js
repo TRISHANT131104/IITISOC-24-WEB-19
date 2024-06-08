@@ -27,7 +27,7 @@ const page = () => {
                         < div className=''>Password</div>
                         <input className='border-4 w-full' type="text" />
                     </div>
-                    <button className=' bg-orange-400 w-full my-4 p-3 rounded-xl'>Log In</button>
+                    <button className=' bg-orange-400 w-full my-4 p-3 rounded-xl text-white'>Log In</button>
                 </div>
             </div>
 
