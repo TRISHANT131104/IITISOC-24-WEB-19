@@ -35,7 +35,7 @@ const createToken = (id) => {
         return jwt.sign({id},process.env.JWT_SECRET)
 }
         const registerUser = async (req,res) =>{
-    const {name,password,email} = req.body;
+    const {name,password,email,role} = req.body;
     try{
         // checking is user already exists
         const exists = await userModel.findOne({email});
@@ -49,6 +49,9 @@ const createToken = (id) => {
         if (password.length<8 ){
             return res.json({success:false, message:"Password should be atleast 8 characters"})
         }
+        if (!role.includes(role)) {
+            return res.json({ success: false, message: "Invalid role provided" });
+        }
         // hashing user password 
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password,salt);
@@ -56,6 +59,7 @@ const createToken = (id) => {
             name: name,
             password:  hashedPassword,
             email:email,
+            role:role,
         });
         const user = await newuser.save();
         const token = createToken(user._id)
