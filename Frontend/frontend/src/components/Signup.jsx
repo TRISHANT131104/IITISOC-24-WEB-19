@@ -10,11 +10,11 @@ const [Role, setRole] = useState()
 setRole(e.target.value)
           console.log(e.target.value)}
           const handleform=(e) => {
-            setform({...form,[e.target.name]:e.target.value})
+            setform({...form,[e.target.name]:e.target.value,role:Role})
           }
           const handlesignup = async() => {
-            setform({...form,role:Role})
-            console.log({...form,role:Role})
+            // setform({...form,role:Role})
+            // console.log({...form,role:Role})
             let res= await fetch("http://localhost:4000/api/user/register",{method:"POST", headers:{"Content-Type":"application/json"},
               body:JSON.stringify(form)})
               let response = await res.json()
