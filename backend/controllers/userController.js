@@ -72,3 +72,7 @@ const createToken = (id) => {
     
 }
 export {loginUser,registerUser}
+
+export const logoutUser = (req, res) => {
+    console.log("logoutUser")
+}

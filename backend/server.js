@@ -3,8 +3,8 @@ import express from 'express'
 import cors from "cors"
 import { connectDB } from './config/db.js'
 import userRouter from './routes/userRoute.js'
-import messageRoute from './routes/messageRoute.js'
-import { app, server } from "/socket/socket.js";
+import messageRouter from './routes/messageRoute.js'
+import { app, server } from "./socket/socket.js";
 import 'dotenv/config'
 const __dirname = path.resolve();
 
@@ -36,12 +36,12 @@ app.use(express.json())
 app.use(cors())
 
 
-// connectDB();
+connectDB();
 
 
 app.use("/api/user", userRouter)
 
-app.use("/api/message", messageRoute)
+app.use("/api/message", messageRouter)
 
 app.use(express.static(path.join(__dirname, '/frontend/dist')));
 
@@ -50,6 +50,6 @@ app.get('*',(req,res)=>{
 })
 
 server.listen(PORT,()=>{
-    connectDB();
+    // connectDB();
     console.log(`Server started on http://localhost:${PORT}`)
 })
