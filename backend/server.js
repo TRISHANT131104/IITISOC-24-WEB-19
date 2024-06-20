@@ -4,8 +4,10 @@ import cors from "cors"
 import { connectDB } from './config/db.js'
 import userRouter from './routes/userRoute.js'
 import messageRouter from './routes/messageRoute.js'
+import jobRouter from "./routes/jobRoute.js";
 import { app, server } from "./socket/socket.js";
-import 'dotenv/config'
+import dotenv from 'dotenv';
+dotenv.config();
 const __dirname = path.resolve();
 
 const PORT = process.env.PORT || 4000
@@ -42,6 +44,8 @@ connectDB();
 app.use("/api/user", userRouter)
 
 app.use("/api/message", messageRouter)
+
+app.use("/api/job", jobRouter)
 
 app.use(express.static(path.join(__dirname, '/frontend/dist')));
 

@@ -10,4 +10,5 @@ const jobListingSchema = new mongoose.Schema({
     cartData:{type:Object,default:{}},
                 
   },{minimize: false});
-  export const JobListing = mongoose.model('JobListing', jobListingSchema);
+  const jobModel = mongoose.models.job || mongoose.model('job',jobListingSchema);
+ export default jobModel;

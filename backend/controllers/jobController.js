@@ -1,4 +1,4 @@
-import jobModel from "../models/jobModel";
+import jobModel from "../models/jobModel.js";
 const createJobListing = async (req,res) => {
     const job = new JobListing({
       title: "Software Engineer",
@@ -17,4 +17,4 @@ const createJobListing = async (req,res) => {
     }
   };
   
-  createJobListing();
+ export  {createJobListing};
