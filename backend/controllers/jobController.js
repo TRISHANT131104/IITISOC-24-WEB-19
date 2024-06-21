@@ -1,17 +1,31 @@
 import jobModel from "../models/jobModel.js";
+import jwt from 'jsonwebtoken'
+import bcrypt from "bcrypt";
+
+import validator from "validator"
+
+
+const createToken = (id) => {
+  return jwt.sign({id},process.env.JWT_SECRET )
+}
+
 const createJobListing = async (req,res) => {
-    const job = new JobListing({
-      title: "Software Engineer",
-      company: "Tech Corp",
-      category: "Engineering",
-      contact: "hr@techcorp.com",
-      salary: 80000,
-      description: "Develop and maintain web applications."
-    });
+const{title,company,category,contact,salary,description}= req.body;
+    
   
     try {
-      const savedJob = await job.save();
-      console.log("Job Listing Saved", savedJob);
+      const newjob = new jobModel({
+        title:title,
+        company: company,
+        category: category,
+        contact: contact,
+        salary: salary,
+        description: description,
+
+      });
+      const job = await newjob.save();
+        const token = createToken(user._id)
+        res.json({success:true, token})
     } catch (err) {
       console.error("Error saving job listing", err);
     }

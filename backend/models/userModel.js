@@ -10,6 +10,9 @@ const userSchema = new mongoose.Schema({
                     type:String, required:true,  unique:true
                 },
                 role: { type: String, enum: ['Freelancer', 'Recruiter'], required: true },
+                profilePic: { type:String,
+                    default:""
+                },
                 cartData:{type:Object,default:{}},
                 
             
