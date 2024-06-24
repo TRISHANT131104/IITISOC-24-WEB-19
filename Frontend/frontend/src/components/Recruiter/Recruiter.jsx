@@ -5,20 +5,15 @@ import { useNavigate } from 'react-router-dom'
 import Navbar1 from '../Navbar1'
 const Recruiter = () => {
   
-const [worktime, setworktime] = useState()
   
   const navigate = useNavigate()
   const [job, setJob] = useState({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime:"" })
-  const handleworktime=(e) => {
-    setworktime(e.target.value)
-    setJob({...job,Worktime:worktime})
-    console.log({...job,Worktime:worktime})
-  
-  }
   const [jobs, setjobs] = useState([])
+
+
   const handlejob = (e) => {
-    setJob({ ...job, [e.target.name]: e.target.value, Worktime:worktime})
-    console.log({ ...job, [e.target.name]: e.target.value, Worktime:worktime})
+    setJob({ ...job, [e.target.name]: e.target.value})
+    // console.log({ ...job, [e.target.name]: e.target.value, Worktime:worktime})
     }
     
     const handlepost = async() => {
@@ -98,11 +93,11 @@ const [worktime, setworktime] = useState()
           <div className="work-details-box">
             <span className="working-title">Working hours </span>
             <div className="working-category">
-              <input type="radio" onChange={(e) => {handleworktime(e)}} value="Part time" name="worktime" id="parttime" />
+              <input type="radio" onChange={handlejob} value="Part time" name="Worktime" id="parttime" />
               <label htmlFor="parttime">Part Time</label>
-              <input type="radio" onChange={(e) => {handleworktime(e)}} value="Full time" name="worktime" id="fulltime" />
+              <input type="radio" onChange={handlejob} value="Full time" name="Worktime" id="fulltime" />
               <label htmlFor="fulltime">Full Time</label>
-              <input type="radio" onChange={(e) => {handleworktime(e)}} value="Other" name="worktime" id="other" />
+              <input type="radio" onChange={handlejob} value="Other" name="Worktime" id="other" />
               <label htmlFor="other">Other</label>
             </div>
           </div>
