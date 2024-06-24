@@ -2,33 +2,43 @@ import React from 'react'
 import Navbar1 from './Navbar1'
 import Navbar2 from './Navbar2'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 
 const Signin = () => {
-   
-        const [form, setform] = useState({email:"", pass:""})
-        const [data, setdata] = useState([])
-    
-    const handleform =(e) => {
-        setform({...form,[e.target.name]:e.target.value})
-        
+    const navigate = useNavigate()
+    const [islogged, setislogged] = useState(false)
+    const [form, setform] = useState({ email: "", password: "" })
+    const [data, setdata] = useState([])
+
+    const handleform = (e) => {
+        setform({ ...form, [e.target.name]: e.target.value })
+
     }
-    const handlelogin= async() => {
-      setdata([...data,form])
-    console.log([...data,form])
-    let res= await fetch("http://localhost:4000/api/user/login",{method:"POST", headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(form)})
+    const handlelogin = async () => {
+        setdata([...data, form])
+        console.log([...data, form])
+        let res = await fetch("http://localhost:5003/api/user/login", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(form)
+        })
         let response = await res.json()
-        setform({email:"", pass:""})
-    console.log(response)
-       
-}
+        setform({ email: "", password: "" })
+        console.log(response)
+        if (response.success) {
+           navigate("/Home")
+        }
+
+
+
+    }
 
     return (
         <div className=''>
             <Navbar1 />
             <Navbar2 />
-            
+
             <div className='h-1/6 text-3xl flex items-end justify-center mt-4'>
                 <div>
                     <div className='text-center'>Log In</div>
@@ -42,11 +52,11 @@ const Signin = () => {
                     <div className='mb-3'>
                         < div>Email</div>
                         <input onChange={handleform} name='email' value={form.email}
-                        className='border-4 w-full' type="text" />
+                            className='border-4 w-full' type="text" />
                     </div>
                     <div className='mb-3'>
                         < div className=''>Password</div>
-                        <input onChange={handleform} name='pass' value={form.pass} className='border-4 w-full' type="password" />
+                        <input onChange={handleform} name='password' value={form.pass} className='border-4 w-full' type="password" />
                     </div>
                     <button onClick={handlelogin} className=' bg-orange-400 w-full my-4 p-3 rounded-xl text-white'>Log In</button>
                 </div>

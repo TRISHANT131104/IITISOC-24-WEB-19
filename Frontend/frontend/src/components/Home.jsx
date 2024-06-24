@@ -1,47 +1,76 @@
 import React from 'react'
-import Navbar1 from './Navbar1.jsx'
-import Navbar2 from './Navbar2.jsx'
+import Navbar1 from './Navbar1'
+import Navbar2 from './Navbar2'
+import './card.css'
+import { useState, useEffect } from 'react'
 const Home = () => {
-  return (
-    <div>
-      <Navbar1/>
-      <Navbar2/>
-  
-    </div>
-  )
+    const [listjob, setlistjob] = useState([])
+    useEffect(() => {
+        const getjob = async () => {
+            let jb = await fetch("http://localhost:5003/api/job/list")
+           let jobs = await jb.json()
+          
+            setlistjob(jobs.data)
+        
+        }
+        getjob()
+
+    }, [])
+const check=() => {
+  console.log(listjob)
+}
+
+    return (
+        <div>
+            
+                <Navbar1 />
+                <Navbar2 />
+                {listjob.map((items,index) => {
+                  return <div key={index} className="course">
+                  <div className="preview">
+                      <h6>{items.company}</h6>
+                      <h2>{items.category}</h2>
+                      
+                      <div className="info">
+                          <div className="progress-wrapper">
+                              <div className="progress">
+ 
+                              </div>
+                              <span className="progress-text">
+                                  Experience -{items.Experience} Years
+                              </span>
+                          </div>
+                          <h5>{items.Worktime}</h5>
+ 
+                      </div>
+                  </div>
+                  <div className="details flex justify-between w-full">
+                      <div className="p-trunc">
+                          <h2 className='text-xl font-semibold'>{items.title}</h2>
+                          <ul><li>SKILLS REQUIRED: {items.skill}</li>
+                              <li>JOB TYPE : WORK FROM HOME</li>
+                              <li>SALARY : ₹ {items.salary}/month</li>
+                              <li>PERKS : CERTIFICATE , LETTER OF RECCOMENDATION.</li>
+                          </ul>
+                      </div>
+                      <div>
+                          <button onClick={check} className="btn">
+                              Apply Now ..
+                          </button>
+                      </div>
+                  </div>
+              </div>
+                }
+                )}
+               
+             
+
+                       
+
+
+                    </div>
+                
+    )
 }
 
 export default Home
-<div class="container">
-        <div class="course">
-            <div class="preview">
-                <h6>Internship</h6>
-                <h2>Web Development</h2>
-                <a href="#">view all Internships</a>
-                <div class="info">
-                    <div class="progress-wrapper">
-                        <div class="progress">
-
-                        </div>
-                        <span class="progress-text">
-                            Experience -2yrs
-                        </span>
-                    </div>
-                    <h5>PART TIME</h6>
-                    
-                </div>
-            </div>
-            <div class="details">
-                <h2>FULL STACK DEVELOPMENT</h2>
-                <p class="p-trunc">SKILLS REQUIRED: HTML,CSS, JAVASCRIPT, MongoDB, Node.js, ReactJS, PHP <br>
-                    JOB TYPE : WORK FROM HOME<br>
-                    SALARY : ₹ 15,000/month<br>
-                    PERKS : CERTIFICATE , LETTER OF RECCOMENDATION.
-                </p>
-            
-            <button class="btn">
-                Apply Now ..
-            </button>
-            </div>
-        </div>
-    </div>
