@@ -10,7 +10,7 @@ const createToken = (id) => {
 }
 
 const createJobListing = async (req,res) => {
-const{title,company,category,contact,salary,description}= req.body;
+const{title,company,category,Experience,salary,skill,Worktime}= req.body;
     
   
     try {
@@ -18,9 +18,10 @@ const{title,company,category,contact,salary,description}= req.body;
         title:title,
         company: company,
         category: category,
-        contact: contact,
+        Experience: Experience,
         salary: salary,
-        description: description,
+        skill: skill,
+        Worktime: Worktime,
 
       });
       const job = await newjob.save();

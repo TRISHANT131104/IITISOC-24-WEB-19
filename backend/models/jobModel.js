@@ -4,9 +4,10 @@ const jobListingSchema = new mongoose.Schema({
     title: { type: String, required: true },
     company: { type: String, required: true },
     category: { type: String, required: true },
-    contact: { type: String, required: true },
+    Experience: { type: String, required: true },
     salary: { type: Number, required: true },
-    description: { type: String, required: true },
+    skill: { type: String, required: true },
+    Worktime: { type: String, required: true },
     cartData:{type:Object,default:{}},
                 
   },{minimize: false});
