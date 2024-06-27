@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router-dom'
 
 const Signin = () => {
     const navigate = useNavigate()
-    const [islogged, setislogged] = useState(false)
     const [form, setform] = useState({ email: "", password: "" })
     const [data, setdata] = useState([])
+    const [token, settoken] = useState()
 
     const handleform = (e) => {
         setform({ ...form, [e.target.name]: e.target.value })
@@ -26,9 +26,15 @@ const Signin = () => {
         let response = await res.json()
         setform({ email: "", password: "" })
         console.log(response)
-        if (response.success) {
+         settoken(response.token)
+     localStorage.setItem("token",response.token)
+        if (response.success && response.role =="Freelancer") {
            navigate("/Home")
         }
+        if (response.success && response.role =="Recruiter") {
+            navigate("/Recruiterhome")
+         }
+    
 
 
 

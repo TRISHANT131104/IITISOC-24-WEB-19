@@ -1,22 +1,16 @@
 
 
 
-import React ,{useState} from 'react'
-// import './Navbar1.css'
+import React ,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
-// const Navbar1 = ({setShowLogin}) => {
-//   return (
-//     <div className='navbar'>
-//         <img src="https://c8.alamy.com/comp/2HMMMBC/freelancer-text-on-red-brown-ribbon-badge-stamp-2HMMMBC.jpg" alt="" className='logo'/>
-//           <div className="navbar-right"> 
-//         <button onClick={()=>setShowLogin(true)} >sign in</button>
-//         </div> 
-//     </div>
-//   )
-// }
 
 const Navbar1 = () => {
+ 
+
+  
+  
+  
   return (
     <div>
       <nav className='flex justify-between bg-slate-300  '>
@@ -26,10 +20,10 @@ const Navbar1 = () => {
       </div>
       <div className='flex gap-5 p-3'>
         
-              <Link to="/search">SEARCH</Link>      
-              <Link to="/Signin">LOG IN</Link>      
-              <Link to="/Signup">SIGN UP</Link>      
-             <Link to="/Freelance">FREELANCER</Link>      
+              <Link to="/search" className='hover:font-semibold'>SEARCH</Link>  
+              <Link to="/Signin" className='hover:font-semibold'>LOG IN </Link>    
+              <Link to="/Signup" className='hover:font-semibold'>SIGN UP</Link>      
+              <Link to="/Freelance" className='hover:font-semibold'>FREELANCER</Link>      
         </div>
     </nav>
    </div>

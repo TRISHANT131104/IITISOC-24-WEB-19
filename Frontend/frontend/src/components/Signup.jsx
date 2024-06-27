@@ -15,10 +15,16 @@ setRole(e.target.value)
           const handlesignup = async() => {
             // setform({...form,role:Role})
             // console.log({...form,role:Role})
-            let res= await fetch("http://localhost:4000/api/user/register",{method:"POST", headers:{"Content-Type":"application/json"},
+            let res= await fetch("http://localhost:5003/api/user/register",{method:"POST", headers:{"Content-Type":"application/json"},
               body:JSON.stringify(form)})
               let response = await res.json()
               console.log(response)
+              if (response.success && response.role =="Freelancer") {
+                navigate("/Home")
+             }
+             if (response.success && response.role =="Recruiter") {
+                 navigate("/Recruiterhome")
+              }
               setform({name:"",password:"",email:"",role:"" })
           }
           

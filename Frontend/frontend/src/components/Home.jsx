@@ -16,9 +16,7 @@ const Home = () => {
         getjob()
 
     }, [])
-const check=() => {
-  console.log(listjob)
-}
+
 
     return (
         <div>
@@ -54,7 +52,7 @@ const check=() => {
                           </ul>
                       </div>
                       <div>
-                          <button onClick={check} className="btn">
+                          <button className="btn">
                               Apply Now ..
                           </button>
                       </div>

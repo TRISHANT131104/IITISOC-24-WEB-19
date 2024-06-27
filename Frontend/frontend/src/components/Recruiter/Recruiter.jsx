@@ -4,48 +4,29 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar1 from '../Navbar1'
 const Recruiter = () => {
-  
-  
   const navigate = useNavigate()
-  const [job, setJob] = useState({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime:"" })
-  const [jobs, setjobs] = useState([])
-
-
+  const [job, setJob] = useState({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime: "" })
   const handlejob = (e) => {
-    setJob({ ...job, [e.target.name]: e.target.value})
-    // console.log({ ...job, [e.target.name]: e.target.value, Worktime:worktime})
-    }
-    
-    const handlepost = async() => {
-     
-      // setjobs([...jobs,job])
-      console.log(job)
-      // console.log([...jobs, job])
-      // localStorage.setItem("Jobs",JSON.stringify([...jobs,job]))
-      // console.log(JSON.parse(localStorage.getItem("Jobs")))
-      let res = await fetch("http://localhost:5003/api/job/createJob", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(job)
-       })
+    setJob({ ...job, [e.target.name]: e.target.value })
+  }
+
+  const handlepost = async () => {
+    console.log(job)
+    let res = await fetch("http://localhost:5003/api/job/createJob", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(job)
+    })
     let response = await res.json()
     console.log(response)
-      setJob({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime:"" })
-  
-      
-      }
-      
-      
-      
-      return (
-        <div className=''>
-
-
+    navigate("/Recruiterhome")
+    setJob({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime: "" })
+  }
+  return (
+    <div className=''>
       <Navbar1 />
       <div className='flex justify-center items-center '>
-
         <div className="container bg-gray-400 p-2  ">
           <h1 className="form-title">Post A Job</h1>
-
           <div className="main-work-info">
             <div className="work-input-box">
               <label htmlFor="title">Job Title</label>
