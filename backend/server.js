@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 const __dirname = path.resolve();
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 5000
 
 
 
@@ -29,15 +29,15 @@ app.use("/api/message", messageRouter)
 
 app.use("/api/job", jobRouter)
 
-app.use(express.static(path.join(__dirname, '/frontend/dist')));
+app.use(express.static(path.join(__dirname, '/frontends/dist')));
 
-// app.get('*',(req,res)=>{
-//     res.sendFile(path.join(__dirname, "frontend", "dist","index.html"))
-// })
-app.get('/',(req,res) => {
-  res.send("API is working properly")
-}
-)
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname, "frontends", "dist","index.html"))
+})
+// app.get('/',(req,res) => {
+//   res.send("API is working properly")
+// }
+// )
 
 server.listen(PORT,()=>{
     connectDB();

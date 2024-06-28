@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './Recruiter.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Navbar1 from '../../../../Frontend/frontend/src/components/Navbar1'
+import Navbar1 from '../../../../frontends/src/components/Navbar1'
 const Recruiter = () => {
   const navigate = useNavigate()
   const [job, setJob] = useState({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime: "" })
