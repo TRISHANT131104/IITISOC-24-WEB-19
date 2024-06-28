@@ -2,7 +2,7 @@
 This is a freelancing website developed as a college project. It allows freelancers to create profiles, list their skills, and search for job postings. Employers can post job listings, search for freelancers, and hire them for projects. The website is built using React for the front end and Node.js for the back end.
 
 # Some Features of This App:
-🌟 Tech stack: MERN + Socket.io + TailwindCSS + Daisy UI
+🌟 Tech stack: MERN + Socket.io + TailwindCSS + Daisy UI+ Many more
 🎃 Authentication && Authorization with JWT
 👾 Real-time messaging with Socket.io
 🚀 Online user status (Socket.io and React Context)
@@ -30,7 +30,11 @@ Start backend with npm
   cd backend
   npm run server
 ```
-    
+
+ ## DEPLOYMENT LINK ##
+ --> https://iitisoc-24-web-19-wqqf.onrender.com
+
+ 
 ## Usage
 
 1.Register an Account:
