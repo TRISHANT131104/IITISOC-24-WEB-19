@@ -17,21 +17,25 @@ const Signin = () => {
 
     }
     const handlelogin = async () => {
-        setdata([...data, form])
-        console.log([...data, form])
+        // setdata([...data, form])
+        // console.log([...data, form])
         let res = await fetch("http://localhost:5003/api/user/login", {
             method: "POST", headers: { "Content-Type": "application/json" },
             body: JSON.stringify(form)
         })
         let response = await res.json()
         setform({ email: "", password: "" })
-        console.log(response)
+        console.log(response.userinfo)
          settoken(response.token)
      localStorage.setItem("token",response.token)
-        if (response.success && response.role =="Freelancer") {
+     localStorage.setItem("loggedin","True")
+     localStorage.setItem("user", JSON.stringify(response.userinfo))
+        if (response.success && response.userinfo.role =="Freelancer") {
+            console.log("Its a freelancer")
            navigate("/Home")
         }
-        if (response.success && response.role =="Recruiter") {
+        if (response.success && response.userinfo.role =="Recruiter") {
+            console.log("Its a recruiter")
             navigate("/Recruiterhome")
          }
     

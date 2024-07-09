@@ -21,7 +21,7 @@ const loginUser = async (req,res) => {
 
         }
         const token = createToken(user._id)
-        res.json({success:true, token,role: user.role})
+        res.json({success:true, token,userinfo:{role: user.role, email:user.email, name:user.name}})
 
     } catch (error){
         console.log(error);
@@ -63,7 +63,7 @@ const createToken = (id) => {
         });
         const user = await newuser.save();
         const token = createToken(user._id)
-        res.json({success:true, token,role: user.role})
+        res.json({success:true, token,userinfo:{role: user.role, email:user.email, name:user.name}})
     }catch(error) {
     console.log(error)
     res.json({success:false,message:"Error"})

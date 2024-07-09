@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { BrowserRouter} from 'react-router-dom'
 
 import Home from './components/Home.jsx'
-
+import Profile from './components/Profile.jsx'
 import Signup from './components/Signup.jsx'
 import Signin from './components/Signin.jsx'
 import Recruiter from './components/Recruiter/Recruiter.jsx'
@@ -43,7 +43,10 @@ const router =createBrowserRouter([
   path:"/Recruiterhome",
   element:<Recruiterhome/>
 },
-
+{ 
+  path:"/Profile",
+  element:<Profile/>
+},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
