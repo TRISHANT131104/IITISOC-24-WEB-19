@@ -2,7 +2,9 @@ import React from 'react'
 import Navbar1 from './Navbar1'
 import Navbar2 from './Navbar2'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 const Signup = () => {
+  const navigate = useNavigate()
 const [Role, setRole] = useState()
   const [form, setform] = useState({name:"",password:"",email:"",role:"" })
         const [data, setdata] = useState([])
@@ -13,12 +15,14 @@ setRole(e.target.value)
             setform({...form,[e.target.name]:e.target.value,role:Role})
           }
           const handlesignup = async() => {
-            // setform({...form,role:Role})
-            // console.log({...form,role:Role})
+        
             let res= await fetch("http://localhost:5003/api/user/register",{method:"POST", headers:{"Content-Type":"application/json"},
               body:JSON.stringify(form)})
               let response = await res.json()
               console.log(response)
+              localStorage.setItem("token",response.token)
+              localStorage.setItem("loggedin",True)
+              localStorage.setItem("user", JSON.stringify(response.userinfo))
               if (response.success && response.role =="Freelancer") {
                 navigate("/Home")
              }
@@ -30,7 +34,7 @@ setRole(e.target.value)
           
           
         
-    return (
+    return(
     <div>
         <Navbar1/>  
         <Navbar2/>  
