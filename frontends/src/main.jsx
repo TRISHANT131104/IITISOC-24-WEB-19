@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
@@ -12,7 +12,7 @@ import Signin from './components/Signin.jsx'
 import Recruiter from './components/Recruiter/Recruiter.jsx'
 import Recruiterhome from './components/Recruiterhome.jsx'
 
-import StoreContextProvider from './context/StoreContext.jsx'
+
 import { SocketContextProvider } from "./context/SocketContext.jsx";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 
