@@ -2,9 +2,11 @@
 import Navbar1 from './Navbar1'
 import Navbar2 from './Navbar2'
 import { useState } from 'react'
+
 import { useNavigate } from 'react-router-dom'
 const Signup = () => {
   const navigate = useNavigate()
+
 const [Role, setRole] = useState()
   const [form, setform] = useState({name:"",password:"",email:"",role:"" })
         const [data, setdata] = useState([])
