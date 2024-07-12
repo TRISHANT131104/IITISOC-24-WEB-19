@@ -4,8 +4,15 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar1 from '../../../../frontends/src/components/Navbar1'
 const Recruiter = () => {
+  const user = JSON.parse(localStorage.getItem("user"))
   const navigate = useNavigate()
-  const [job, setJob] = useState({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime: "" })
+  const [job, setJob] = useState({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime: "",email:"" })
+  useEffect(() => {
+    if(user){
+setJob({...job,email:user.email})
+    }
+  }, [])
+  
   const handlejob = (e) => {
     setJob({ ...job, [e.target.name]: e.target.value })
   }
@@ -19,7 +26,7 @@ const Recruiter = () => {
     let response = await res.json()
     console.log(response)
     navigate("/Recruiterhome")
-    setJob({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime: "" })
+    setJob({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime: "",email:"" })
   }
   return (
     <div className=''>

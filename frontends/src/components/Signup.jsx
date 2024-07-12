@@ -2,16 +2,9 @@
 import Navbar1 from './Navbar1'
 import Navbar2 from './Navbar2'
 import { useState } from 'react'
-<<<<<<< HEAD:frontends/src/components/Signup.jsx
-import {useNavigate} from 'react-router-dom'
-const Signup = () => {
-  const navigate = useNavigate()
- 
-=======
 import { useNavigate } from 'react-router-dom'
 const Signup = () => {
   const navigate = useNavigate()
->>>>>>> ea8b562b1c2854a9e63bfae1b621f763a5114307:Frontend/frontend/src/components/Signup.jsx
 const [Role, setRole] = useState()
   const [form, setform] = useState({name:"",password:"",email:"",role:"" })
         const [data, setdata] = useState([])

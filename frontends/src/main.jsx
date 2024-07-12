@@ -15,6 +15,7 @@ import Recruiterhome from './components/Recruiterhome.jsx'
 import StoreContextProvider from './context/StoreContext.jsx'
 import { SocketContextProvider } from "./context/SocketContext.jsx";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
+import Jobapplication from './components/Jobapplication.jsx'
 
 
 
@@ -46,6 +47,10 @@ const router =createBrowserRouter([
 { 
   path:"/Profile",
   element:<Profile/>
+},
+{ 
+  path:"/Application",
+  element:<Jobapplication/>
 },
 ])
 

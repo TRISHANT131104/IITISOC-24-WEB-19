@@ -3,7 +3,10 @@ import Navbar1 from './Navbar1'
 import Navbar2 from './Navbar2'
 import './card.css'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 const Home = () => {
+    const user = JSON.parse(localStorage.getItem("user"))
+    const navigate = useNavigate()
     const [listjob, setlistjob] = useState([])
     useEffect(() => {
         const getjob = async () => {
@@ -16,6 +19,11 @@ const Home = () => {
         getjob()
 
     }, [])
+    const handleapply = (remail) => {
+console.log(remail)
+        navigate('/Application', { state: {email:user.email,name:user.name,remail:remail} });
+    }
+    
 
 
     return (
@@ -52,7 +60,8 @@ const Home = () => {
                           </ul>
                       </div>
                       <div>
-                          <button className="btn">
+                          <button onClick={() => {handleapply(items.email)}
+                          } className="btn">
                               Apply Now ..
                           </button>
                       </div>

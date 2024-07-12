@@ -25,7 +25,7 @@ const Signin = () => {
         })
         let response = await res.json()
         setform({ email: "", password: "" })
-        console.log(response.userinfo)
+        console.log(response)
          settoken(response.token)
      localStorage.setItem("token",response.token)
      localStorage.setItem("loggedin","True")

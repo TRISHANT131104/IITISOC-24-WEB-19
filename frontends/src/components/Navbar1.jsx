@@ -22,7 +22,9 @@ const Navbar1 = () => {
         <div className='flex gap-5 p-3'>
 
           <Link to="/search" className='hover:font-semibold'>SEARCH</Link>
+          {localStorage.getItem("loggedin")? <div> <button>LOGOUT</button></div>:
           <Link to="/Signin" className='hover:font-semibold'>LOG IN </Link>
+          }
           <Link to="/Signup" className='hover:font-semibold'>SIGN UP</Link>
           {localStorage.getItem("loggedin") &&
           
