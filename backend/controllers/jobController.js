@@ -10,7 +10,7 @@ const createToken = (id) => {
 }
 
 const createJobListing = async (req,res) => {
-const{title,company,category,Experience,salary,skill,Worktime}= req.body;
+const{title,company,category,Experience,salary,skill,Worktime,email}= req.body;
     
   
     try {
@@ -22,7 +22,7 @@ const{title,company,category,Experience,salary,skill,Worktime}= req.body;
         salary: salary,
         skill: skill,
         Worktime: Worktime,
-
+        email:email,
       });
       const job = await newjob.save();
         const token = createToken(job._id)
@@ -44,4 +44,4 @@ const{title,company,category,Experience,salary,skill,Worktime}= req.body;
         }
   }
   
- export  {createJobListing,listJob};
+ export  {createJobListing,listJob,jobapply};
