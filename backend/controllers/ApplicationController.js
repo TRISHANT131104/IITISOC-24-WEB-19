@@ -29,8 +29,19 @@ const ApplyNow = async (req,res) => {
           console.error("Error saving in Apply Form", err);
         }
       };
+
+      const Appliedjob = async (req,res) =>{
+        try{
+          const applyjob = await ApplicationModel.find({});
+          res.json({success:true,data:applyjob})
+        }
+        catch (error){
+          console.log(error)
+          res.json({success:false,message:"Error"})
+        }
+  }
     
       
       
       
-     export  {ApplyNow};
+     export  {ApplyNow,Appliedjob};

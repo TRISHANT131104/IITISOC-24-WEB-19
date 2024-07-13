@@ -44,4 +44,4 @@ const{title,company,category,Experience,salary,skill,Worktime,email}= req.body;
         }
   }
   
- export  {createJobListing,listJob,jobapply};
+ export  {createJobListing,listJob};
