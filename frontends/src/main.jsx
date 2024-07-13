@@ -11,6 +11,7 @@ import Signup from './components/Signup.jsx'
 import Signin from './components/Signin.jsx'
 import Recruiter from './components/Recruiter/Recruiter.jsx'
 import Recruiterhome from './components/Recruiterhome.jsx'
+// import Chat from './components/Chat/Chat.jsx'
 
 
 import { SocketContextProvider } from "./context/SocketContext.jsx";
@@ -52,6 +53,10 @@ const router =createBrowserRouter([
   path:"/Application",
   element:<Jobapplication/>
 },
+// { 
+//   path:"/Chat",
+//   element:<Chat/>
+// },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

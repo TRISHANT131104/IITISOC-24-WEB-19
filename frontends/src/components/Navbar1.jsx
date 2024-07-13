@@ -4,13 +4,18 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Profile from './Profile'
-
+import { useNavigate } from 'react-router-dom'
 const Navbar1 = () => {
+  const navigate = useNavigate()
   const [Profileopen, setProfileopen] = useState(false)
   const toggleprofile = () => {
     setProfileopen(!Profileopen)
     console.log(Profileopen)
   }
+const handlelogout = () => {
+  localStorage.clear()
+  navigate("/Signin")
+}
 
   return (
     <div>
@@ -22,7 +27,7 @@ const Navbar1 = () => {
         <div className='flex gap-5 p-3'>
 
           <Link to="/search" className='hover:font-semibold'>SEARCH</Link>
-          {localStorage.getItem("loggedin")? <div> <button>LOGOUT</button></div>:
+          {localStorage.getItem("loggedin")? <div> <button onClick={handlelogout}>LOGOUT</button></div>:
           <Link to="/Signin" className='hover:font-semibold'>LOG IN </Link>
           }
           <Link to="/Signup" className='hover:font-semibold'>SIGN UP</Link>

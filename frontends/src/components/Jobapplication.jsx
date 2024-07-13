@@ -2,9 +2,13 @@ import React from 'react';
 import "./Jobapplication.css"
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Jobapplication = () => {
-    const {state} = useLocation();
-const { email,name,remail } = state; 
+    const navigate = useNavigate()
+//     const {state} = useLocation();
+// const { email,name,remail } = state; 
+const { state } = useLocation();
+const { email = "", name = "", remail = "" } = state || {};
     const [form, setform] = useState({fullName:name,email:email,phoneNumber:"",education:"",skills:"",Experience:"",remail:remail})
     const handleform= (e) => {
       setform({...form,[e.target.name]:e.target.value})
@@ -12,12 +16,13 @@ const { email,name,remail } = state;
       console.log(email,name,remail)
     }
     const handleapply = async() => {
-        let res = await fetch("http://localhost:5003/api/job/apply", {
+        let res = await fetch("http://localhost:5003/api/job/Apply", {
             method: "POST", headers: { "Content-Type": "application/json" },
             body: JSON.stringify(form)
         })
         let response = await res.json()
         console.log(response)
+        navigate("/Recruiterhome")
     }
     
     
