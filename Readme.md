@@ -21,7 +21,7 @@ Install my-project with npm
 Start frontend with npm
 
 ```bash
-  cd Frontend/frontend
+  cd frontends
   npm run dev
 ```
 Start backend with npm
