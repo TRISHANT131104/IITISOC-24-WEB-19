@@ -11,7 +11,6 @@ const Signin = () => {
     const [form, setform] = useState({ email: "", password: "" })
     const [data, setdata] = useState([])
     const [token, settoken] = useState()
-
     const handleform = (e) => {
         setform({ ...form, [e.target.name]: e.target.value })
 
@@ -28,7 +27,16 @@ const Signin = () => {
         console.log(response)
          settoken(response.token)
      localStorage.setItem("token",response.token)
-     localStorage.setItem("loggedin","True")
+     if(response.success){
+localStorage.setItem("loggedin","True")
+localStorage.setItem("message",response.message)
+
+        }
+     if(!response.success){
+localStorage.setItem("loggedin","False")
+localStorage.setItem("message",response.message)
+        }
+
      localStorage.setItem("user", JSON.stringify(response.userinfo))
         if (response.success && response.userinfo.role =="Freelancer") {
             console.log("Its a freelancer")
@@ -38,6 +46,8 @@ const Signin = () => {
             console.log("Its a recruiter")
             navigate("/Recruiterhome")
          }
+         console.log(response.success)
+         
     
 
 
@@ -60,13 +70,15 @@ const Signin = () => {
             <div className='flex justify-center py-5 '>
                 <div className='bg-white border-2 border-black rounded-lg p-4 min-w-[35vw] '>
                     <div className='mb-3'>
-                        < div>Email</div>
+                        Email{<div className='text-red-700'>{localStorage.getItem("message")}</div>}
+                        < div>
+                        </div>
                         <input onChange={handleform} name='email' value={form.email}
                             className='border-4 w-full' type="text" />
                     </div>
                     <div className='mb-3'>
                         < div className=''>Password</div>
-                        <input onChange={handleform} name='password' value={form.pass} className='border-4 w-full' type="password" />
+                        <input onChange={handleform} name='password' value={form.password} className='border-4 w-full' type="password" />
                     </div>
                     <button onClick={handlelogin} className=' bg-orange-400 w-full my-4 p-3 rounded-xl text-white'>Log In</button>
                 </div>

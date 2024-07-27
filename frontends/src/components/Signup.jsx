@@ -23,12 +23,12 @@ setRole(e.target.value)
               let response = await res.json()
               console.log(response)
               localStorage.setItem("token",response.token)
-              localStorage.setItem("loggedin",True)
+              localStorage.setItem("loggedin","True")
               localStorage.setItem("user", JSON.stringify(response.userinfo))
-              if (response.success && response.role =="Freelancer") {
+              if (response.success && response.userinfo.role =="Freelancer") {
                 navigate("/Home")
              }
-             if (response.success && response.role =="Recruiter") {
+             if (response.success && response.userinfo.role =="Recruiter") {
                  navigate("/Recruiterhome")
               }
               setform({name:"",password:"",email:"",role:"" })

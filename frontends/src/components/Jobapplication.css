@@ -5,9 +5,9 @@
     align-items: center;
     background: url(bg-image.jpg);
     background-size: cover;
-} */
+}   */
 
-/* .container{
+.container{
     width: 100%;
     max-width: 650px;
     background: rgba(0, 0, 0, 0.5);
@@ -15,7 +15,7 @@
     margin: 0 28px;
     border-radius: 10px;
     box-shadow: inset -2px 2px 2px white;
-} */
+}
 
 .form-title{
     font-size: 26px;
@@ -64,9 +64,9 @@
 .user-input-box>#description{
     height:100px;
 }
-/* .user-input-box>#Experience{
+ .user-input-box>#Experience{
     height:100px
-} */
+}
 
 .form-submit-btn input{
     cursor: pointer;

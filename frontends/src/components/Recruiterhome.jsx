@@ -27,28 +27,60 @@ const Recruiterhome = () => {
         <div>
             <Navbar1 />
             <Navbar2 />
+            <div>
+
             <div className="container  flex justify-center min-w-full">
                 <div className='text-center m-4'>
                     <div className='text-2xl my-3'>Click on the Button to Post a Job</div>
                     <button onClick={tojobform} className='text-normal rounded-xl bg-red-400 text-white py-2 px-3' >Post a Job</button>
                 </div>
-                <div>
+                
+
+            </div>
+            <div>
+                <div className='font-semibold text-gray-800 px-4 mt-4 text-2xl'>Candidates Applied For Job</div>
                     {jobapply.map((items,index) => {
-                      if(items.remail==user.email){
-                        return <div key={index}>
-                            <div> {items.phoneNumber}</div>
-                        <div>candidate email </div>
-                        <div>candidate contact no- </div>
-                        <div>candidate name </div>
+                        if(items.remail==user.email){
+                            return <div key={index} className="course">
+                            <div className="preview">
+                                <h6>{items.company}</h6>
+                                <h2>{items.category}</h2>
+                                
+                                <div className="info">
+                                    <div className="progress-wrapper">
+                                        <div className="progress">
+           
+                                        </div>
+                                        <span className="progress-text">
+                                            Name - {items.fullName}
+                                        </span>
+                                    </div>
+                                    
+           
+                                </div>
+                            </div>
+                            <div className="details flex justify-between w-full">
+                                <div className="p-trunc">
+                                    <h2 className='text-xl font-semibold'>{items.title}</h2>
+                                    <ul><li>Email - {items.email}</li>
+                                        <li>Phone Number : {items.phoneNumber}</li>
+                                        <li>Education : {items.education}</li>
+                                        
+                                    </ul>
+                                </div>
+                                <div>
+                                    
+                                </div>
+                            </div>
                         </div>
                       }
                     }
-                    )
-                        
-                    }
+                )
+                
+            }
                     
                 </div>
-
+           
             </div>
         </div>
     )

@@ -51,10 +51,18 @@ setJob({...job,email:user.email})
             </div>
             <div className="work-input-box">
               <label htmlFor="category">Job Category</label>
-              <input onChange={handlejob} value={job.category} type="text"
+              <select name="category" id="" onChange={handlejob}  >
+                <option value=""></option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Graphic Design">Graphic Design</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Machine Learning">Machine Learning</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+              </select>
+              {/* <input onChange={handlejob} value={job.category} type="text"
                 id="jobcategory"
                 name="category"
-                placeholder="Enter job category" />
+                placeholder="Enter job category" /> */}
             </div>
             <div className="work-input-box">
               <label htmlFor="Experience">Experience Required</label>

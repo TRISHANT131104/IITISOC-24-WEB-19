@@ -2,7 +2,7 @@ import  { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 // import io from 'socket.io';
 import './chat.css';
-import  '/assets';
+// import  '/assets';
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);

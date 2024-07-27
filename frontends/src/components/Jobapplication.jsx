@@ -22,7 +22,7 @@ const { email = "", name = "", remail = "" } = state || {};
         })
         let response = await res.json()
         console.log(response)
-        navigate("/Recruiterhome")
+        navigate("/Home")
     }
     
     
@@ -31,7 +31,7 @@ const { email = "", name = "", remail = "" } = state || {};
 
         <div className="container">
             <h1 className="form-title">APPLY FOR JOB</h1>
-            <form action="#">
+            
                 <div className="main-user-info">
                     <div className="user-input-box">
                         <label htmlFor="fullName">Full Name</label>
@@ -121,7 +121,7 @@ const { email = "", name = "", remail = "" } = state || {};
                 <div className="form-submit-btn">
                    <button onClick={handleapply}>Apply Now</button>
                 </div>
-            </form>
+            
         </div>
                             </div>
     );
