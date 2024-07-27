@@ -35,7 +35,7 @@ const handlelogout = () => {
           
           <div className=''>
 <button onClick={() => { toggleprofile() }
-            } className='relative '>Y</button>
+            } className='relative '>Profile</button>
             {
             // <div className='absolute bg-green-400 w-1/5  top-0 right-0 z-10'><Profile/> <div className='absolute left-10 top-0'>X</div></div>
             }

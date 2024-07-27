@@ -52,7 +52,11 @@ const Recruiterhome = () => {
            
                                         </div>
                                         <span className="progress-text">
+                                            <div>
                                             Name - {items.fullName}
+                                            </div>
+                                            <div>Email - {items.email}</div>
+                                            
                                         </span>
                                     </div>
                                     
@@ -61,11 +65,12 @@ const Recruiterhome = () => {
                             </div>
                             <div className="details flex justify-between w-full">
                                 <div className="p-trunc">
-                                    <h2 className='text-xl font-semibold'>{items.title}</h2>
-                                    <ul><li>Email - {items.email}</li>
+                                   
+                                    <ul>
                                         <li>Phone Number : {items.phoneNumber}</li>
                                         <li>Education : {items.education}</li>
-                                        
+                                        <li>Skill - {items.skills}</li>
+                                        <li>Skill - {items.Experience}</li>
                                     </ul>
                                 </div>
                                 <div>

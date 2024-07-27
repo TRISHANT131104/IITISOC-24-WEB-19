@@ -43,7 +43,7 @@ console.log(remail)
  
                               </div>
                               <span className="progress-text">
-                                  Experience -{items.Experience} Years
+                                  Experience - {items.Experience} Years
                               </span>
                           </div>
                           <h5>{items.Worktime}</h5>
@@ -54,9 +54,7 @@ console.log(remail)
                       <div className="p-trunc">
                           <h2 className='text-xl font-semibold'>{items.title}</h2>
                           <ul><li>SKILLS REQUIRED: {items.skill}</li>
-                              <li>JOB TYPE : WORK FROM HOME</li>
-                              <li>SALARY : ₹ {items.salary}/month</li>
-                              <li>PERKS : CERTIFICATE , LETTER OF RECCOMENDATION.</li>
+                         <li>SALARY : ₹ {items.salary}/month</li>
                           </ul>
                       </div>
                       <div>
