@@ -3,16 +3,36 @@ import express from 'express'
 import cors from "cors"
 import { connectDB } from './config/db.js'
 import userRouter from './routes/userRoute.js'
-import messageRouter from './routes/messageRoute.js'
+import ApplyRouter from "./routes/ApplicationRoute.js";
+// import messageRouter from './routes/messageRoute.js'
 import jobRouter from "./routes/jobRoute.js";
 import { app, server } from "./socket/socket.js";
 import dotenv from 'dotenv';
+import {Server} from 'socket.io';
 dotenv.config();
 const __dirname = path.resolve();
 
 const PORT = process.env.PORT || 5000
 
+const io = new Server(8000, { cors: { origin: "*" } });
 
+const users = {};
+
+io.on('connection', socket => {
+    socket.on('new-user-joined',name=>{
+        users[socket.id] = name;
+        socket.broadcast.emit('user-joined',name);
+    });
+    socket.on('send',message=>{
+        socket.broadcast.emit('receive',{message:message,name:users[socket.id]})
+    });
+
+    socket.on('disconnect', message =>{
+        socket.broadcast.emit('left', users[socket.id]);
+        delete users[socket.id];
+    })
+
+})
 
 
 
@@ -25,9 +45,11 @@ app.use(cors())
 
 app.use("/api/user", userRouter)
 
-app.use("/api/message", messageRouter)
+// app.use("/api/message", messageRouter)
 
 app.use("/api/job", jobRouter)
+
+app.use("/api/job", ApplyRouter)
 
 app.use(express.static(path.join(__dirname, '/frontends/dist')));
 

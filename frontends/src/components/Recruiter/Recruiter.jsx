@@ -4,8 +4,15 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar1 from '../../../../frontends/src/components/Navbar1'
 const Recruiter = () => {
+  const user = JSON.parse(localStorage.getItem("user"))
   const navigate = useNavigate()
-  const [job, setJob] = useState({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime: "" })
+  const [job, setJob] = useState({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime: "",email:"" })
+  useEffect(() => {
+    if(user){
+setJob({...job,email:user.email})
+    }
+  }, [])
+  
   const handlejob = (e) => {
     setJob({ ...job, [e.target.name]: e.target.value })
   }
@@ -19,7 +26,7 @@ const Recruiter = () => {
     let response = await res.json()
     console.log(response)
     navigate("/Recruiterhome")
-    setJob({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime: "" })
+    setJob({ title: "", company: "", category: "", Experience: "", salary: "", skill: "", Worktime: "",email:"" })
   }
   return (
     <div className=''>
@@ -44,10 +51,18 @@ const Recruiter = () => {
             </div>
             <div className="work-input-box">
               <label htmlFor="category">Job Category</label>
-              <input onChange={handlejob} value={job.category} type="text"
+              <select name="category" id="" onChange={handlejob}  >
+                <option value=""></option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Graphic Design">Graphic Design</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Machine Learning">Machine Learning</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+              </select>
+              {/* <input onChange={handlejob} value={job.category} type="text"
                 id="jobcategory"
                 name="category"
-                placeholder="Enter job category" />
+                placeholder="Enter job category" /> */}
             </div>
             <div className="work-input-box">
               <label htmlFor="Experience">Experience Required</label>
